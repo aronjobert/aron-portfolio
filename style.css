@@ -146,6 +146,23 @@ body {
   text-decoration: none;
 }
 
+.contact-icons {
+  display: flex;
+  gap: 20px; /* space between icons */
+  justify-content: center; /* center horizontally */
+  margin-top: 10px;
+}
+
+.contact-icons a {
+  font-size: 2rem; /* icon size */
+  color: #333; /* icon color */
+  transition: color 0.3s;
+}
+
+.contact-icons a:hover {
+  color: #0077b5; /* LinkedIn blue on hover, adjust for your preference */
+}
+
 /* Footer */
 .footer {
   text-align: center;
