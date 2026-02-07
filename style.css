@@ -136,6 +136,11 @@ body {
   font-weight: bold;
 }
 
+.project-card .card_image{
+  width: 100%;
+  border-radius: 8px;
+}
+
 /* Contact */
 .contact p {
   margin-bottom: 8px;
