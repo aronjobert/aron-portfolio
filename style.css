@@ -141,6 +141,11 @@ body {
   margin-bottom: 8px;
 }
 
+.contact p a{
+  color: #ffffff;
+  text-decoration: none;
+}
+
 /* Footer */
 .footer {
   text-align: center;
