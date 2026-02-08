@@ -53,35 +53,31 @@ $(document).ready(function () {
   $(".nav-links a").on("click", closeMenu);
 
 
-  // Contact form submit
+// Contact form submit
 const form = document.getElementById("contactForm");
+const status = document.getElementById("formStatus");
 
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
 
-  const formData = {
-    name: form.name.value,
-    email: form.email.value,
-    subject: form.subject.value,
-    message: form.message.value,
-  };
+  const data = Object.fromEntries(new FormData(form));
 
-  try {
-    const res = await fetch("/api/contact", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(formData),
-    });
+  status.textContent = "Sending...";
 
-    const data = await res.json();
+  const res = await fetch("/api/contact", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data),
+  });
 
-    if (data.success) alert("Message sent successfully!");
-    else alert("Failed to send message.");
-  } catch (err) {
-    console.error(err);
-    alert("Error sending message.");
+  if (res.ok) {
+    status.textContent = "Message sent successfully!";
+    form.reset();
+  } else {
+    status.textContent = "Something went wrong.";
   }
 });
+
 
 });
 
