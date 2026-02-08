@@ -56,25 +56,30 @@ $(document).ready(function () {
 
 // Contact form submit
 const form = document.getElementById("contactForm");
-const status = document.getElementById("formStatus");
 
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
 
-  const data = Object.fromEntries(new FormData(form));
+  const formData = {
+    name: form.name.value,
+    email: form.email.value,
+    subject: form.subject.value,
+    message: form.message.value,
+  };
 
-  status.textContent = "Sending...";
+  try {
+    const res = await fetch("/api/contact", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(formData),
+    });
 
-  const res = await fetch("/api/contact", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(data),
-  });
+    const data = await res.json();
 
-  if (res.ok) {
-    status.textContent = "Message sent successfully!";
-    form.reset();
-  } else {
-    status.textContent = "Something went wrong.";
+    if (data.success) alert("Message sent successfully!");
+    else alert("Failed to send message.");
+  } catch (err) {
+    console.error(err);
+    alert("Error sending message.");
   }
 });
