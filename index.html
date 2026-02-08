@@ -6,29 +6,43 @@
   <title>Aron Salim | Web Developer</title>
   <link rel="stylesheet" href="style.css" />
   <script src="https://kit.fontawesome.com/a7e7388c78.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+/>
 </head>
 <body>
 
-  <!-- Navbar -->
+ <!-- Navbar -->
   <nav class="navbar">
-    <div class="container nav-content">
-      <h2 class="logo">Aron Salim</h2>
-      <ul class="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </div>
-  </nav>
+  <div class="container nav-content">
+    <!-- Hamburger -->
+    <button class="menu-toggle" id="menuToggle">
+      <i class="fa-solid fa-bars"></i>
+    </button>
 
+    <!-- Logo -->
+    <h2 class="logo">Aron Salim</h2>
+
+    <!-- Navigation -->
+    <ul class="nav-links" id="mobileNav">
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+  
   <!-- Hero -->
-  <header class="hero">
+   <header class="hero">
     <div class="hero-content reveal">
       <h1>Shopify, WordPress & Duda Developer</h1>
       <p>I build fast, conversion-focused websites that help businesses grow.</p>
       <a href="#projects" class="btn">View My Work</a>
-    </div>
+    </div> 
   </header>
+
+<!-- Backdrop -->
+<div class="nav-backdrop" id="navBackdrop"></div>
+
 
   <!-- About -->
   <section id="about" class="section">
@@ -50,7 +64,7 @@
     <div class="container">
       <h2 class="reveal">Shopify Websites</h2>
 
-      <div class="project-grid">
+      <div class="project-grid shopify_projects">
        
         <div class="project-card reveal">
           <h3>Cap Middle East Shop</h3>
@@ -62,40 +76,45 @@
         <div class="project-card reveal">
           <h3>Elysce Essential Oils Shop</h3>
           <img class="card_image" src="images/elysce_website.png">
-          <p>Involved in Working in this website. worked on custom sections, content and images insertions.</p>
+          <p>Involved in building this website. worked on custom sections, content and images insertions.</p>
           <a target="_blank" href="https://elsyce.com/">View Live Site →</a>
         </div>
 
       </div>
     </div>
-  </section>
 
-  <section id="projects" class="section">
     <div class="container">
       <h2 class="reveal">Duda Websites</h2>
 
-      <div class="project-grid">
+      <div class="project-grid duda_projects">
 
         <div class="project-card reveal">
-          <h3>Shopify Store Redesign</h3>
-          <p>Improved product page UX and increased load speed.</p>
-          <a href="#">View Live Site →</a>
+          <h3>Best Car Detailing</h3>
+          <img class="card_image" src="images/best_car_detailing.png">          
+          <a target="_blank" href="https://www.bestcardetailing.com.au/">View Live Site →</a>
         </div>
 
         <div class="project-card reveal">
-          <h3>WordPress Business Website</h3>
-          <p>Custom theme with performance optimization.</p>
-          <a href="#">View Live Site →</a>
+          <h3>Eagle Tamer Barbershop</h3>
+          <img class="card_image" src="images/eagle_tamer_barbershop.png">
+          <a target="_blank" href="https://www.eagletamerbarbershop.com.au/">View Live Site →</a>
         </div>
-
+        
         <div class="project-card reveal">
-          <h3>Duda Client Website</h3>
-          <p>Modern responsive layout for a local business.</p>
-          <a href="#">View Live Site →</a>
+          <h3>J'Adore Flowers & Gifts</h3>
+          <img class="card_image" src="images/j'adore_flowers_and_gifts.png">
+          <a target="_blank" href="https://www.jadorecairns.com.au/">View Live Site →</a>
+        </div>
+        
+        <div class="project-card reveal">
+          <h3>Salt Building & Pest Inspection</h3>
+          <img class="card_image" src="images/salt_building_pest_inspections.png">
+          <a target="_blank" href="https://www.saltinspections.com.au/">View Live Site →</a>
         </div>
 
       </div>
     </div>
+
   </section>
 
   <!-- Contact -->
@@ -108,9 +127,23 @@
     </div>
   </section> -->
 
+  <section id="contact" class="contact">
+  <div class="container reveal">
+    <h2>Contact Me</hh2>
+    <form id="contactForm" class="contact-form">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <input type="text" name="subject" placeholder="Subject" required>
+      <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+      <button type="submit" class="btn">Send Message</button>
+      <p id="formStatus"></p>
+    </form>
+  </div>
+</section>
+
+
   <section id="contact" class="section contact">
   <div class="container reveal">
-    <h2>Contact</h2>
     <div class="contact-icons">
       <a href="mailto:aronjobertsalim@gmail.com" target="_blank" title="Email">
         <i class="fas fa-envelope"></i>
@@ -128,7 +161,7 @@
   <footer class="footer">
     <p>© 2026 Aron Salim. All rights reserved.</p>
   </footer>
-
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
