@@ -64,22 +64,16 @@ form.addEventListener("submit", async (e) => {
 
   status.textContent = "Sending...";
 
-  try {
-    const res = await fetch("/app/api/send/contact", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data),
-    });
+  const res = await fetch("/api/contact", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data),
+  });
 
-    if (res.ok) {
-      status.textContent = "Message sent successfully!";
-      form.reset();
-    } else {
-      const errorData = await res.json();
-      status.textContent = errorData.error || "Something went wrong.";
-    }
-  } catch (err) {
-    console.error(err);
+  if (res.ok) {
+    status.textContent = "Message sent successfully!";
+    form.reset();
+  } else {
     status.textContent = "Something went wrong.";
   }
 });
