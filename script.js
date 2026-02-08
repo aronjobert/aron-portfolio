@@ -65,7 +65,7 @@ form.addEventListener("submit", async (e) => {
 
   status.textContent = "Sending...";
 
-  const res = await fetch("/api_key/contact", {
+  const res = await fetch("/api/contact", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(data),
