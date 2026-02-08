@@ -52,9 +52,8 @@ $(document).ready(function () {
 
   $(".nav-links a").on("click", closeMenu);
 
-});
 
-// Contact form submit
+  // Contact form submit
 const form = document.getElementById("contactForm");
 
 form.addEventListener("submit", async (e) => {
@@ -83,3 +82,6 @@ form.addEventListener("submit", async (e) => {
     alert("Error sending message.");
   }
 });
+
+});
+
