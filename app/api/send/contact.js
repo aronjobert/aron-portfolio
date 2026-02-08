@@ -1,3 +1,4 @@
+// /api/contact.js
 import { Resend } from "resend";
 
 export default async function handler(req, res) {
@@ -9,7 +10,7 @@ export default async function handler(req, res) {
     const { name, email, subject, message } = req.body;
 
     if (!process.env.RESEND_API_KEY) {
-      return res.status(500).json({ error: "Missing API key" });
+      return res.status(500).json({ error: "Missing RESEND_API_KEY" });
     }
 
     const resend = new Resend(process.env.RESEND_API_KEY);
@@ -27,7 +28,6 @@ export default async function handler(req, res) {
     });
 
     return res.status(200).json({ success: true });
-
   } catch (error) {
     console.error("Email error:", error);
     return res.status(500).json({ error: "Email failed" });
