@@ -424,6 +424,7 @@ body {
   transform: translateY(0);
 }
 
+
 /* Tablet */
 @media (max-width: 900px) {
   .project-grid {
